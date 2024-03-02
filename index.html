@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            height: 100vh;
+            padding: 30px;
+            margin: auto;
+        }
+
+        .btn {
+            padding: 10px 30px;
+        }
+
+        .lovac {
+            margin-top: 30px;
+            height: 550px;
+            background-image: url(pexels-jill-wellington-3309877.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            border-radius: 10px;
+
+        }
+
+        .box {
+            box-shadow: 2px 3px 5px black, 5px 6px 5px black;
+            height: 350px;
+            background-color: rgba(229, 229, 229, 0.124);
+            border-radius: 10px;
+        }
+
+        .yes {
+            padding: 5px 30px;
+            background-color: rgb(54, 54, 225);
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 50px;
+            position: absolute;
+            bottom: 30px;
+            left: 50px;
+        }
+
+        .no {
+            padding: 5px 30px;
+            background-color: rgb(255, 0, 55);
+            color: white;
+            outline: none;
+            border: none;
+            border-radius: 50px;
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+        }
+
+        .fa-4x {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            color: red;
+        }
+
+        .doYou {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            font-size: 19px;
+            font-weight: 600;
+            transform: translate(-50%);
+            color: rgb(54, 54, 225);
+            letter-spacing: 1.8px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container m-auto">
+        <div class="col-7 m-auto d-flex justify-content-between">
+            <button class="btn btn-dark">Black</button>
+            <button class="btn btn-success">Green</button>
+            <button class="btn btn-primary">Blue</button>
+            <button class="btn btn-danger">Red</button>
+            <button class="btn btn-warning">Yellow</button>
+            <button class="btn btn-secondary">Grey</button>
+        </div>
+
+
+        <div class="col-md-12 border border-1   lovac">
+            <div class="col-md-4  m-auto position-relative box">
+
+
+                <i class="fa fa-heart fa-4x"></i>
+                <p class="doYou">Do you love me ?</p>
+
+
+
+                <button class="yes" role="button">Yes</button>
+                <button class="no" role="button">No</button>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+<script>
+    let btns = document.querySelectorAll('.btn')
+    let body = document.querySelector('body')
+    let heart = document.querySelector('.fa-heart')
+
+    body.addEventListener('click', () => {
+        body.style.backgroundColor = ''
+        heart.style.color = 'red'
+
+        // body.style.backgroundColor = btns[0].innerHTML
+    }, true)
+
+    btns[0].addEventListener('click', () => {
+        body.style.backgroundColor = btns[0].innerHTML
+        heart.style.color = btns[0].innerHTML
+    })
+    // btns[0].addEventListener('dblclick', () => {
+    //     body.style.backgroundColor = 'pink'
+    //    let colorvalue = btns[0].innerHTML = "Pink"
+    // })
+
+    btns[1].addEventListener('click', () => {
+        body.style.backgroundColor = btns[1].innerHTML
+        heart.style.color = btns[1].innerHTML
+    })
+
+    btns[2].addEventListener('click', () => {
+        body.style.backgroundColor = btns[2].innerHTML
+        heart.style.color = btns[2].innerHTML
+    })
+
+    btns[3].addEventListener('click', () => {
+        body.style.backgroundColor = btns[3].innerHTML
+        heart.style.color = btns[3].innerHTML
+    })
+
+    btns[4].addEventListener('click', () => {
+        body.style.backgroundColor = btns[4].innerHTML
+        heart.style.color = btns[4].innerHTML
+    })
+
+    btns[5].addEventListener('click', () => {
+        body.style.backgroundColor = btns[5].innerHTML
+        heart.style.color = btns[5].innerHTML
+    })
+
+
+    let doyou = document.querySelector('.doYou')
+    let yesbtn = document.querySelector('.yes')
+    let nobtn = document.querySelector('.no')
+    let box = document.querySelector('.box')
+    let clint = box.getBoundingClientRect()
+    let clintnobtn = nobtn.getBoundingClientRect()
+
+    yesbtn.addEventListener('click',  () => {
+        doyou.innerHTML = "I Love You Too ❤️"
+        // console.log('helo')
+    })
+  
+    nobtn.addEventListener('mouseover', () => {
+        let i = Math.floor(Math.random() * (clint.width - clintnobtn.width)) + 5
+        console.log(i)
+        let j = Math.floor(Math.random() * (clint.height - clintnobtn.height)) + 5
+        nobtn.style.right = i + 'px'
+        nobtn.style.bottom = j + 'px'
+
+    })
+    // box.addEventListener('dblclick', () => {
+    //     console.log(i)
+
+    // })
+
+    // nobtn.addEventListener('mouseover', btnmove)
+
+
+    // function btnmove() {
+    //     let i = Math.floor(Math.random() * (clint.width - clintnobtn.width)) + 1
+    //     console.log(i)
+    //     let j = Math.floor(Math.random() * (clint.height - clintnobtn.height)) + 1
+    //     nobtn.style.right = i + 'px'
+    //     nobtn.style.bottom = j + 'px'
+
+    // }
+    
+
+
+
+</script>
+
+</html>
