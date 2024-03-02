@@ -84,12 +84,79 @@
             letter-spacing: 1.8px;
 
         }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                background-color: rgb(25, 177, 228);
+            }
+
+            .container {
+                width: 100vw;
+                height: 100vh;
+                padding: 10px;
+                /* margin: auto !important; */
+
+
+            }
+
+            .color {
+                width: 100% !important;
+               justify-content: center !important;
+               column-gap: 3px;
+
+               margin-bottom: 30px !important;
+            }
+
+            .btn {
+            padding: 5px 10px ;
+            }
+
+            .box {
+                box-shadow: 2px 3px 5px black, 5px 6px 5px black;
+                height: 200px;
+                width: 340px;
+                margin: auto;
+                background-color: rgba(229, 229, 229, 0.124);
+                border-radius: 10px;
+            }
+
+            .doYou {
+                width: 90%;
+                bottom: 35%;
+                left: 50%;
+                transform: translate(-30%);
+            }
+
+            .fa-4x {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -100%);
+                color: red;
+            }
+
+        .lovac {
+            height: 450px;
+            width: 90vw; 
+            margin: auto !important;
+            background-image: url(pexels-jill-wellington-3309877.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            /* justify-content: center !important; */
+            /* align-items: center; */
+            z-index: 3;
+            border-radius: 10px;
+
+        }
+        }
     </style>
 </head>
 
 <body>
     <div class="container m-auto">
-        <div class="col-7 m-auto d-flex justify-content-between">
+        <div class="col-md-7 m-auto d-flex justify-content-between color">
             <button class="btn btn-dark">Black</button>
             <button class="btn btn-success">Green</button>
             <button class="btn btn-primary">Blue</button>
@@ -99,7 +166,7 @@
         </div>
 
 
-        <div class="col-md-12 border border-1   lovac">
+        <div class="col-md-12 lovac">
             <div class="col-md-4  m-auto position-relative box">
 
 
@@ -177,11 +244,11 @@
     let clint = box.getBoundingClientRect()
     let clintnobtn = nobtn.getBoundingClientRect()
 
-    yesbtn.addEventListener('click',  () => {
+    yesbtn.addEventListener('click', () => {
         doyou.innerHTML = "I Love You Too ❤️"
         // console.log('helo')
     })
-  
+
     nobtn.addEventListener('mouseover', () => {
         let i = Math.floor(Math.random() * (clint.width - clintnobtn.width)) + 5
         console.log(i)
@@ -206,7 +273,7 @@
     //     nobtn.style.bottom = j + 'px'
 
     // }
-    
+
 
 
 
