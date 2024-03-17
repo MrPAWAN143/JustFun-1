@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="w-[600px] m-auto bg-slate-400 container mt-10 pb-20 pt-10">
+        <h2 class="text-2xl font-medium text-center w-96 m-auto  bg-teal-200 pt-2 pb-2">Number Gussing Game</h2>
+        <p class="text-center text-white mt-2">Try and guess a rendom number between 1 to 100</p>
+        <p class="text-center text-white mt-2">You have 10 attempts to guess a right number</p>
+
+
+        <form action="">
+
+            <label for="guessFild" class="block text-3xl text-center mb-3 w-100">Guess A Number</label>
+            <input type="text" id="guessFild"
+                class="guessFild w-[300px] h-[40px] block m-auto outline outline-purple-500 p-2">
+            <input type="submit" value="Submit"
+                class="guessSubmit block m-auto text-xl bg-black text-white pl-10 pr-10 pt-2 pb-2 mt-5 rounded-md">
+        </form>
+
+        <p class="text-center text-white mt-6">Previous guess:</p>
+        <p class="text-center text-white mt-0">Guesses Remaining : <span class="remaining"></span></p>
+        <p class="text-center text-white mt-0">Low And High</p>
+
+
+    </div>
+
+
+    <script>
+        let form = document.querySelector('form')
+        let Submit = document.querySelector('.guessSubmit')
+        let input = document.querySelector('input')
+        let p = document.querySelectorAll('p')
+        let remaining = document.querySelector('.remaining')
+        let result = document.querySelector('label')
+
+        let rendomNumber = parseInt((Math.random()) * 1000 + 1)
+        console.log(rendomNumber)
+
+        let previousGuess = []
+        let numguess = 1
+        let playgame = true
+
+        if (playgame) {
+            Submit.addEventListener('click', (e) => {
+                e.preventDefault()
+                let userguess = parseInt(input.value)
+
+                validateGuess(userguess)
+            })
+
+
+
+        }
+
+        function validateGuess(guess) {
+            if (isNaN(guess)) {
+                p[4].innerHTML = "Please Enter a viled  number"
+            } else if (guess === '') {
+                p[4].innerHTML = "You sumbited  empty value !"
+            } else if (guess < 1) {
+                p[4].innerHTML = "Enter a viled number between 1 to 1000"
+            } else if (guess > 1000) {
+                p[4].innerHTML = "Enter a viled number between 1 to 1000"
+            } else {
+                previousGuess.push(guess)
+                if (numguess === 10) {
+                    displayGuess(guess)
+                    DisplayMessage(`Game over , Rendom number was ${rendomNumber}`)
+                    endGame()
+                } else {
+                    displayGuess(guess)
+                    CheckGuess(guess)
+                }
+            }
+
+        }
+
+        function CheckGuess(guess) {
+            if (guess === rendomNumber) {
+                p[4].innerHTML = 'Good job'
+                result.innerHTML = `You are winner `
+                result.style.color = 'green'
+                endGame()
+            } else if (guess < rendomNumber) {
+                p[4].innerHTML = `Number is too low Keep trying`
+
+            } else if (guess > rendomNumber) {
+                p[4].innerHTML = `Number is too high Keep trying`
+            }
+            //
+        }
+        function displayGuess(guess) {
+            input.value = ''
+            p[2].innerHTML += `${guess + " ,"}`
+            numguess++
+
+            remaining.innerHTML = `${10 - numguess}`
+        }
+        function DisplayMessage(message) {
+            p[4].innerHTML = `${message}`
+        }
+        function endGame() {
+            input.setAttribute('disabled', '')
+            Submit.value = "Game Restart"
+            playgame = false
+            newGame()
+
+        }
+        function newGame() {
+            Submit.addEventListener('click', function () {
+                rendomNumber = parseInt((Math.random()) * 1000 + 1)
+                console.log(rendomNumber)
+               previousGuess = []
+                input.removeAttribute('disabled')
+                Submit.value = 'Submit'
+
+                numguess = 10
+                remaining.innerHTML = `${numguess - 10}`
+                playgame = true
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

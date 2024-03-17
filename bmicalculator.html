@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black ">
+
+    <div class="container border h-[400px] w-[500px] m-auto pt-8 mt-auto ">
+
+        <form action="" class="align-middle">
+
+            <div class="w-[400px] h-[40px] m-auto mt-6">
+                <input type="number" name="" value="" id="" class="h-[100%] w-[100%] m-auto px-3 height"
+                    placeholder="Height">
+            </div>
+
+            <div class="w-[400px] h-[40px] m-auto mt-6">
+                <input type="number" name="" value="" id="" class="h-[100%] w-[100%] m-auto px-3 weight"
+                    placeholder="Weight">
+            </div>
+
+
+
+            <div class="w-[400px] h-[40px] m-auto mt-6">
+                <input type="submit" value="Calculate" id="" class="h-[100%] w-[100%] m-auto px-3 bg-white">
+            </div>
+
+
+
+            <div class="w-[400px] h-[40px] m-auto mt-6 text-white text-center">
+                <p class="mt-6 "> <strong class="result text-red-600">BMI Weidth Guide</strong> </p>
+                <p>Under Weight = less than 18.6</p>
+                <p>Normal Range = 18.6 to 24.9</p>
+                <p>Over Weight = More than 24.9</p>
+            </div>
+
+
+        </form>
+    </div>
+    <script>
+
+
+        let form = document.querySelector('form')
+        let result = document.querySelector('.result')
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            let height = document.querySelector('.height').value
+            let weight = document.querySelector('.weight').value
+
+            if (height == '' || height < 0 || isNaN(height)) {
+                result.innerHTML = `Enter a viled Height ${height}`
+            } else if (weight == '' || weight < 0 || isNaN(weight)) {
+                result.innerHTML = `Enter a viled weight ${weight}`
+            } else {
+                let bmi = (weight / ((height * height) / 10000)).toFixed(2)
+                // console.log("BMI IS " + bmi)
+
+                if (bmi < 18.6) {
+                    result.innerHTML = `BMI too low ${bmi}`
+
+                }
+                else if (bmi > 18.6 && bmi < 24.9) {
+                    result.innerHTML = `BMI Normal ${bmi}`
+
+                }
+                else if (bmi > 24.9) {
+                    result.innerHTML = `BMI too high ${bmi}`
+
+                }
+
+            }
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>

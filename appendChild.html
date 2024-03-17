@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 800px;
+            height: 500px;
+            border: 1px solid red;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+    </div>
+</body>
+<script>
+    let ull = document.createElement('ul')
+
+    function addlang(language, link) {
+        let li = document.createElement('li')
+        document.querySelector('.container').appendChild(ull).appendChild(li)
+        let a = document.createElement('a')
+
+
+
+        li.appendChild(a)
+        a.setAttribute('href', link)
+        a.appendChild(document.createTextNode(language))
+
+        // console.log(ulr)
+        // return li
+
+    }
+
+
+
+    addlang('Hindi', 'https://google.com')
+    addlang('bangli', 'https://amazone.com')
+    addlang('English')
+    addlang('Urdu')
+    addlang('Tamil')
+    addlang('Khortha')
+
+
+    let secondlang = document.querySelector('li:nth-child(2)')
+
+    console.log(secondlang)
+    let li = document.createElement('li')
+
+  let panjabi =  li.textContent = "Panjabi"
+    secondlang.replaceWith(li)
+</script>
+
+</html>

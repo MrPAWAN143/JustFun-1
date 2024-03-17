@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color generetor</title>
+
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        input {
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            margin: 20px;
+
+
+        }
+
+        .stop,
+        .start {
+            padding: 10px 30px;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            margin-left: 50px;
+        }
+
+        .center {
+            width: 400px;
+
+            margin: auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+
+        <input type="text" readonly>
+
+        <button class="stop">Stop</button>
+        <button class="start">Start</button>
+    </div>
+</body>
+<script>
+    let input = document.querySelector('input')
+    let stopx = document.querySelector('.stop')
+    let start = document.querySelector('.start')
+    let body = document.querySelector('body')
+
+
+
+    function rendomNumber() {
+        let number = '1234567890ABCDEF'
+        let color = '#'
+        for (i = 0; i < 6; i++) {
+            let rendomNumber = Math.floor(Math.random() * 16)
+            color += number[rendomNumber]
+        }
+        input.value = color
+
+        return color
+    }
+    
+
+
+    let s;
+    const startColorChange = function () {
+        
+        s = setInterval(function () {
+            body.style.backgroundColor = rendomNumber()
+
+        }, 1000)
+      
+
+    }
+
+
+    const StopColorChange = function () {
+        clearInterval(s)
+    }
+
+
+
+
+
+    start.addEventListener('click', startColorChange)
+
+    stopx.addEventListener('click', StopColorChange)
+
+
+
+
+</script>
+
+</html>

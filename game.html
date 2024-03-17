@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-500">
+    <div class="container">
+        <div class="item w-[400px] h-[200px] m-auto mt-[220px] border border-l-violet-50 flex items-center justify-center">
+            <input type="text" readonly class="w-[120px] h-[40px] border border-orange-200 bg-transparent text-white text-xl text-center">
+        </div>
+
+    </div>
+    <script>
+        let input = document.querySelector('input')
+       
+
+        setInterval(function(){
+            let date = new Date()
+            
+            input.value = date.toLocaleTimeString('en-US',{ hour: 'numeric', minute: 'numeric',second:'numeric', hour12: true })
+        },1000)
+    </script>
+
+
+
+
+
+</body>
+</html>
